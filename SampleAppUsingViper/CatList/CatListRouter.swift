@@ -27,6 +27,9 @@ final class CatListRouter:  PresenterToRouterCatListDelegate {
     }
     
     func pushToCatDetail(on view: PresenterToViewCatListDelegate, with cat: CatBreed) {
-        // connection with detail router...
+        let  catDetailVC = CatDetailRouter.createModule(with: cat)
+        let vc = view as! CatListViewController
+        vc.navigationController?.pushViewController(catDetailVC,
+                                                    animated: true)
     }
 }

@@ -29,7 +29,7 @@ final class CatListInteractor: PresenterToInteractorCatListDelegate {
     }
     
     
-    var presenter: InteractorToPresenterCatListDelegate?
+    weak var presenter: InteractorToPresenterCatListDelegate?
     private var networkService: NetworkServiceProtocol
     private var cancellable = Set<AnyCancellable>()
     

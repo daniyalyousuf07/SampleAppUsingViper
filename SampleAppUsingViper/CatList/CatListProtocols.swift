@@ -12,7 +12,7 @@ protocol ViewToPresenterCatListDelegate {
     var interactor: PresenterToInteractorCatListDelegate? { get set }
     var view: PresenterToViewCatListDelegate? { get set }
     var router: PresenterToRouterCatListDelegate?  { get  set }
-    
+        
     func viewDidLoad()
     func refresh()
     
@@ -26,6 +26,7 @@ protocol ViewToPresenterCatListDelegate {
 
 
 protocol PresenterToViewCatListDelegate: AnyObject {
+    var presenter: ViewToPresenterCatListDelegate? { get set }
     func onFetchCatList(result: Result<Void, NetworkServiceError>)
     func showActivity()
     func hideActivity()
@@ -37,7 +38,7 @@ protocol PresenterToInteractorCatListDelegate {
     func getCatDetail(at index: Int)
 }
 
-protocol InteractorToPresenterCatListDelegate {
+protocol InteractorToPresenterCatListDelegate: AnyObject {
     func fetchCatList(result: Result<[CatBreed], NetworkServiceError>)
     func fetchCatDetail(result: Result<CatBreed,  NetworkServiceError>)  
 }
